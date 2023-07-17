@@ -148,6 +148,7 @@ install_base_packages
 install_aur_packages
 install_pip_packages
 ./copy_files.sh
+./configure.sh
 
 #echo "Configuring X..."
 #Xorg :0 -configure
