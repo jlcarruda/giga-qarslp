@@ -1,53 +1,58 @@
 function copy_dotfiles(){
-  mkdir -p /tmp/.ricing
-  cp -r . /tmp/.ricing
+  TMP_RICING="/tmp/.ricing"
+  mkdir -p $TMP_RICING
+  cp -r . $TMP_RICING
 
   mkdir -p ~/.config/alacritty
-  cp /tmp/.ricing/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-  cp /tmp/.ricing/dotfiles/.shortcuts ~/
+  cp $TMP_RICING/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+  cp $TMP_RICING/dotfiles/.shortcuts ~/
   mkdir -p ~/.config/wal/templates
   mkdir -p ~/.config/dunst
-  cp /tmp/.ricing/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
-  cp /tmp/.ricing/dotfiles/.config/rofi/QARSlp.rasi ~/.config/wal/templates
+  cp $TMP_RICING/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
+  cp $TMP_RICING/dotfiles/.config/rofi/QARSlp.rasi ~/.config/wal/templates
   mkdir -p ~/.config/cava
-  cp /tmp/.ricing/dotfiles/.config/cava/config ~/.config/wal/templates
+  cp $TMP_RICING/dotfiles/.config/cava/config ~/.config/wal/templates
   mkdir -p  ~/.fonts
-  cp /tmp/.ricing/dotfiles/.fonts/* ~/.fonts
+  cp $TMP_RICING/dotfiles/.fonts/* ~/.fonts
+  mkdir -p /usr/share/fonts/OTF
+  mkdir -p /usr/share/fonts/TTF
+  cp $TMP_RICING/dotfiles/.fonts/*.ttf /usr/share/fonts/TTF
+  cp $TMP_RICING/dotfiles/.fonts/*.otf /usr/share/fonts/OTF
   fc-cache -f -v
   mkdir -p ~/.config/picom
-  cp /tmp/.ricing/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+  cp $TMP_RICING/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   mkdir -p ~/.config/qtile
-  cp /tmp/.ricing/dotfiles/.config/qtile/themes/default.py ~/.config/qtile/theme.py
-  cp -r /tmp/.ricing/dotfiles/.config/qtile/* ~/.config/qtile/
+  cp $TMP_RICING/dotfiles/.config/qtile/themes/default.py ~/.config/qtile/theme.py
+  cp -r $TMP_RICING/dotfiles/.config/qtile/* ~/.config/qtile/
   mkdir -p ~/.config/ranger
-  cp /tmp/.ricing/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
+  cp $TMP_RICING/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
   mkdir -p ~/.config/rofi
-  cp -r /tmp/.ricing/dotfiles/.config/rofi/* ~/.config/rofi/
+  cp -r $TMP_RICING/dotfiles/.config/rofi/* ~/.config/rofi/
   sudo mkdir -p /root/.config/rofi
-  sudo cp -r /tmp/.ricing/dotfiles/.config/rofi/* /root/.config/rofi/
+  sudo cp -r $TMP_RICING/dotfiles/.config/rofi/* /root/.config/rofi/
   sudo mkdir -p /root/.cache/wal
   sudo cp -r ~/.cache/wal/colors-rofi-dark.rasi /root/.cache/wal/
   xdg-settings set default-web-browser firefox.desktop 
   mkdir -p ~/.local/bin
-  cp -r /tmp/.ricing/dotfiles/.local/bin/* ~/.local/bin
+  cp -r $TMP_RICING/dotfiles/.local/bin/* ~/.local/bin
   chmod +x ~/.local/bin/*
-  cp /tmp/.ricing/dotfiles/.zshrc ~/
+  cp $TMP_RICING/dotfiles/.zshrc ~/
   mkdir -p ~/.oh-my-zsh
-  cp /tmp/.ricing/dotfiles/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
+  cp $TMP_RICING/dotfiles/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
   mkdir ~/Pictures
   sudo mkdir -p /usr/share/backgrounds
   mkdir -p ~/Pictures/Wallpapers
-  cp -r /tmp/.ricing/Wallpapers/* ~/Pictures/Wallpapers
-  sudo cp /tmp/.ricing/Wallpapers/wall.jpg /usr/local/backgrounds/background.png
+  cp -r $TMP_RICING/Wallpapers/* ~/Pictures/Wallpapers
+  sudo cp $TMP_RICING/Wallpapers/wall.jpg /usr/local/backgrounds/background.png
   sudo mkdir -p /usr/local/themes
   sudo cp -r ~/.local/share/themes/FlatColor /usr/local/themes
   sudo chown $USER:$USER /usr/local/themes/FlatColor
   sudo ln -s /usr/local/themes/FlatColor /usr/share/themes/FlatColor
   sudo mkdir /usr/local/backgrounds
   sudo chown $USER:$USER /usr/local/backgrounds
-  sudo cp /tmp/.ricing/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+  sudo cp $TMP_RICING/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
   
-  rm -rf /tmp/.ricing
+  rm -rf $TMP_RICING
 }
 
 copy_dotfiles

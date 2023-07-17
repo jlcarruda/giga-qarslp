@@ -61,7 +61,7 @@ function base_install()
 
 function paru_install()
 {
-  if ["$(command -v paru)" ]; then
+  if [ "$(command -v paru)" ]; then
     echo "===> PARU is already installed. Moving foward..."
     return
   fi
