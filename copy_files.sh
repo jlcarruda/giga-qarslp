@@ -14,10 +14,10 @@ function copy_dotfiles(){
   cp $TMP_RICING/dotfiles/.config/cava/config ~/.config/wal/templates
   mkdir -p  ~/.fonts
   cp $TMP_RICING/dotfiles/.fonts/* ~/.fonts
-  mkdir -p /usr/share/fonts/OTF
-  mkdir -p /usr/share/fonts/TTF
-  cp $TMP_RICING/dotfiles/.fonts/*.ttf /usr/share/fonts/TTF
-  cp $TMP_RICING/dotfiles/.fonts/*.otf /usr/share/fonts/OTF
+  sudo mkdir -p /usr/share/fonts/OTF
+  sudo mkdir -p /usr/share/fonts/TTF
+  sudo cp $TMP_RICING/dotfiles/.fonts/*.ttf /usr/share/fonts/TTF
+  sudo cp $TMP_RICING/dotfiles/.fonts/*.otf /usr/share/fonts/OTF
   fc-cache -f -v
   mkdir -p ~/.config/picom
   cp $TMP_RICING/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf

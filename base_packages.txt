@@ -51,3 +51,4 @@ htop
 pamixer
 qtile
 kdeconnect
+zsh
