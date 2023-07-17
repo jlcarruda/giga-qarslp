@@ -143,10 +143,11 @@ echo "################ INSTALLATION ###################"
 echo "#################################################"
 check_install_dependencies
 
-#installMenu
+paru_install
 install_base_packages
 install_aur_packages
 install_pip_packages
+./copy_files.sh
 
 #echo "Configuring X..."
 #Xorg :0 -configure
