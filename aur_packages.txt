@@ -3,3 +3,4 @@ wpgtk-git
 cava
 picom-pijulius-git
 rofi-emoji
+qtile-extras

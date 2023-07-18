@@ -1,1 +1,2 @@
+genwal
 exec qtile start

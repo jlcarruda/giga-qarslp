@@ -19,6 +19,8 @@ python-psutil
 python-xdg
 python-iwlib
 python-dateutil
+python-pyalsa
+python-mpd2
 ueberzug
 dunst
 tk
