@@ -32,3 +32,9 @@ mkdir -p /tmp/.ricing/qtile-extras
 curl https://raw.githubusercontent.com/elParaguayo/qtile-extras/main/PKGBUILD >> /tmp/.ricing/qtile-extras/PKGBUILD
 cd /tmp/.ricing/qtile-extras && makepkg -sci
 
+## add local bin to PATH
+export PATH=$PATH:$HOME/.local/bin
+
+## Execute wpg-install and genwal
+wpg-install.sh -gio
+genwal
