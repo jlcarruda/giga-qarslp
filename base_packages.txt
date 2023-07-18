@@ -54,3 +54,4 @@ pamixer
 qtile
 kdeconnect
 zsh
+opera
