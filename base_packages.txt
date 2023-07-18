@@ -49,6 +49,7 @@ xorg-xinit
 xorg-xset
 xclip
 extra/xorg-mkfontscale
+pavucontrol
 htop
 pamixer
 qtile

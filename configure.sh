@@ -28,9 +28,9 @@ export PATH=$PATH:$HOME/.local/bin
 ## Execute wpg-install
 wpg-install.sh -gio
 
-############################
-#  MANUAL DISPLAY SIZE SET #
-############################
+#############################
+#  MANUAL DISPLAY SIZE SET  #
+#############################
 
 # Change manually to the size you want your display
 # you can check which size is available by running `xrandr` on your terminal
