@@ -10,6 +10,9 @@
 #
 from functions import *
 
+from libqtile import qtile
+from qtile_extras import widget as extra_widget
+
 # Theme
 
 ## Screens
@@ -21,6 +24,9 @@ def init_widgets_list():
           text=" ",
           fontsize=font_size ,
           mouse_callbacks={'Button1': lambda: qtile.cmd_function(session_widget)}
+        ),
+        extra_widget.CurrentLayoutIcon(
+          foreground=secondary_color[1]
         ),
         widget.Spacer(
           length=5,
@@ -240,7 +246,7 @@ def init_widgets_list():
           fontsize=font_size ,
           prefix='M',
           interface=wifi,
-          format='{down:4.1f}↓↑{up:3.1f}',
+          format='{interface}{down}↓↑{up} - {total}',
           foreground=secondary_color[7],
           use_bits=True,
           mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
@@ -291,6 +297,35 @@ def init_screens_bottom():
 
 def init_screens_top():
     return[Screen(top=bar.Bar(widgets=screen1_widgets(),size=bar_size,background=color[0],margin=bar_margin))]
+
+def wlan_widgets():
+   return [
+      widget.Wlan(
+          decorations=[RectDecoration(use_widget_background=True, radius=0, padding_y=1, filled=True)],
+          background=secondary_color[0],
+          fontsize=font_size ,
+          interface=wifi,
+          format='{essid}',
+          disconnected_message='',
+          foreground=color[3],
+          width=widget_width,
+          scroll=True,
+          scroll_repeat=True,
+          scroll_interval=0.1,
+          scroll_step=1,
+          update_interval=1,
+          mouse_callbacks={'Button1':lambda: qtile.cmd_spawn(home + "/.local/bin/wifi2")}),
+      widget.Wlan(
+          decorations=[RectDecoration(use_widget_background=True, radius=0, padding_y=1, filled=True)],
+          background=secondary_color[0],
+          fontsize=font_size,
+          interface=wifi,
+          format='{percent:2.0%}',
+          disconnected_message='',
+          foreground=color[3],
+          mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
+        )
+      ]
 
 if bar_position == "top":
   screens=init_screens_top()

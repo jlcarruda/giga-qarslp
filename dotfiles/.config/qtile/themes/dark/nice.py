@@ -10,6 +10,9 @@
 #
 from functions import *
 
+from libqtile import qtile
+from qtile_extras import widget as extra_widget
+
 # Theme
 
 ## Screens
@@ -21,6 +24,9 @@ def init_widgets_list():
           text=" ",
           fontsize=font_size ,
           mouse_callbacks={'Button1': lambda: qtile.cmd_function(session_widget)}
+        ),
+        extra_widget.CurrentLayoutIcon(
+          foreground=secondary_color[1],
         ),
         widget.Spacer(
           length=5,
@@ -240,7 +246,7 @@ def init_widgets_list():
           fontsize=font_size ,
           prefix='M',
           interface=wifi,
-          format='{down:4.1f}↓↑{up:3.1f}',
+          format='{interface}{down}↓↑{up} - {total}',
           foreground=secondary_color[7],
           use_bits=True,
           mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},

@@ -279,7 +279,7 @@ def init_widgets_list():
             widget.Net(
               prefix='M',
               interface=wifi,
-              format='{down:4.1f}↓↑{up:3.1f}',
+              format='{interface}{down}↓↑{up} - {total}',
               foreground=color[0],
               use_bits=True,
               mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
