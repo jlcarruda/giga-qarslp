@@ -55,7 +55,7 @@ def init_widgets_list():
         ),
         widget.Mpris2(
           background=color[0],
-          mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
+          mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal  + " -e cava")},
           objname=None,
           foreground=color[6],
           width=widget_width,
@@ -101,7 +101,7 @@ def init_widgets_list():
           background=color[0],
           text=wifi_icon,
           foreground=color[3],
-          mouse_callbacks={'Button1': lambda: qtile.function(network_widget)},
+          mouse_callbacks={'Button1': lambda: qtile.cmd_function(network_widget)},
           ),
         widget.ALSAWidget(
           background=color[0],
@@ -122,7 +122,7 @@ def init_widgets_list():
           format="%a %d %H:%M",
           update_interval=1,
           background=color[0],
-          mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)}, 
+          mouse_callbacks={'Button1': lambda: qtile.cmd_function(calendar_notification),'Button4': lambda: qtile.cmd_function(calendar_notification_prev),'Button5': lambda: qtile.cmd_function(calendar_notification_next)}, 
         ),
         widget.UPowerWidget(
             border_charge_colour=color[2],
@@ -143,7 +143,7 @@ def init_widgets_list():
           background=color[0],
           foreground=color[2],
           text="",
-          mouse_callbacks={'Button1': lambda: qtile.function(session_widget)},
+          mouse_callbacks={'Button1': lambda: qtile.cmd_function(session_widget)},
         )]
     return widgets_list
 

@@ -19,7 +19,7 @@ import requests
 from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from qtile_extras import widget
+from qtile_extras import widget as extra_widget
 from qtile_extras.popup.toolkit import (PopupImage, PopupRelativeLayout,PopupText, PopupWidget)
 from qtile_extras.widget.decorations import (BorderDecoration,PowerLineDecoration,RectDecoration)
 from rofi import Rofi
@@ -171,10 +171,10 @@ def app_or_group(group, app):
   def f(qtile):
     if qtile.groups_map[group].windows:
        qtile.groups_map[group].toscreen(toggle=False)
-       qtile.spawn(app)
+       qtile.cmd_spawn(app)
     else:
       qtile.groups_map[group].cdtoscreen(toggle=False)
-      qtile.spawn(app)
+      qtile.cmd_spawn(app)
     return f
 
 ## Import Colors from Pywal
@@ -262,7 +262,7 @@ def change_wallpaper(qtile):
     selection = random.choice(os.listdir(wallpaper_dir))
     selected_wallpaper = os.path.join(wallpaper_dir, selection)
   
-  qtile.reload_config()
+  qtile.cmd_reload_config()
   #subprocess.run(["notify-send","-a", " QARSlp", "Random Wallpaper Set to: ", "%s" %selection])
 
 ## Get network device in use
@@ -328,7 +328,7 @@ def set_default_backend(qtile):
     variables[1]=backend[index] + "\n"
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
-    qtile.reload_config()
+    qtile.cmd_reload_config()
     subprocess.run(["notify-send","-a", " QARSlp", "Color Theme: ", " %s" %backend[index]])
 
 # Display Shortcuts widget
@@ -395,7 +395,7 @@ def session_widget(qtile):
     elif index == 2:
       os.system('systemctl poweroff')    
     else:
-      qtile.function(i3lock_colors)
+      qtile.cmd_function(i3lock_colors)
 
 # Network Widget
 def network_widget(qtile):
@@ -405,11 +405,11 @@ def network_widget(qtile):
     rofi_network.close()
   else:
     if index == 0:
-      qtile.spawn(home + '/.local/bin/wifi2')
+      qtile.cmd_spawn(home + '/.local/bin/wifi2')
     elif index==1:
-      qtile.spawn(terminal + ' -e bmon')
+      qtile.cmd_spawn(terminal + ' -e bmon')
     else:
-      qtile.spawn(terminal + ' -e nmtui')
+      qtile.cmd_spawn(terminal + ' -e nmtui')
 
 
 ## Select Dark or Light Theming
@@ -435,7 +435,7 @@ def dark_white(qtile):
     subprocess.run(["cp", "-r", home + "/.local/share/themes/FlatColor",  "/usr/local/themes/"])
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
-    qtile.reload_config()
+    qtile.cmd_reload_config()
     subprocess.run(["notify-send","-a", " QARSlp", "Theme changed to: ", "%s" %options[index]])
 
 
@@ -451,13 +451,13 @@ def bar_pos(qtile):
       subprocess.run(["cp", "-r", home + "/.local/share/themes/FlatColor",  "/usr/local/themes/"])
       with open(home + '/.config/qtile/variables', 'w') as file:
         file.writelines(variables)
-      qtile.reload_config()
+      qtile.cmd_reload_config()
     elif index == 1:
       variables[5]="bottom"
       subprocess.run(["cp", "-r", home + "/.local/share/themes/FlatColor",  "/usr/local/themes/"])
       with open(home + '/.config/qtile/variables', 'w') as file:
         file.writelines(variables)
-      qtile.reload_config()
+      qtile.cmd_reload_config()
     else:
       qtile.hide_show_bar()
 
@@ -476,7 +476,7 @@ def change_theme(qtile):
     subprocess.run(['cp', themes_dir + "/" + new_theme, home + '/.config/qtile/theme.py'])
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
-    qtile.reload_config()
+    qtile.cmd_reload_config()
     subprocess.run(["notify-send","-a", " QARSlp", " Theme: ", "%s" %theme[index]])
     
 # Set random colors to theme
@@ -484,7 +484,7 @@ def random_colors(qtile):
   subprocess.run(["wpg", "-z", "%s" % wallpaper])
   subprocess.run(["wpg", "-s", "%s" % wallpaper])
   subprocess.run(["rm", "-rf", "%s" %wallpaper + "_wal_sample.png"])
-  qtile.reload_config()
+  qtile.cmd_reload_config()
 
 # Screenshot widget
 def screenshot(qtile):
@@ -542,29 +542,29 @@ def control_panel(qtile):
     rofi_left.close()
   else:
     if index == 1:
-      qtile.function(change_wallpaper)
+      qtile.cmd_function(change_wallpaper)
     elif index == 2:
-      qtile.spawn(home + '/.local/bin/selectwal')
+      qtile.cmd_spawn(home + '/.local/bin/selectwal')
     elif index == 4:
-      qtile.function(set_default_backend)
+      qtile.cmd_function(set_default_backend)
     elif index == 5:
-      qtile.function(dark_white)
+      qtile.cmd_function(dark_white)
     elif index == 6:
-      qtile.function(bar_pos)
+      qtile.cmd_function(bar_pos)
     elif index == 7:
-      qtile.function(change_theme)
+      qtile.cmd_function(change_theme)
     elif index == 9:
       subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
     elif index == 10:
-      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
+      qtile.cmd_spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
     elif index == 11:
       subprocess.run(home + '/.local/bin/calculator')
     elif index == 12:
-      qtile.function(network_widget)
+      qtile.cmd_function(network_widget)
     elif index == 13:
-      qtile.function(screenshot)
+      qtile.cmd_function(screenshot)
     elif index == 14:
-      qtile.function(nightLight_widget)
+      qtile.cmd_function(nightLight_widget)
     elif index == 15:
       subprocess.run(home + '/.local/bin/change_display')
     elif index == 16:
@@ -572,15 +572,15 @@ def control_panel(qtile):
     elif index == 17:
       subprocess.run(home + '/.local/bin/recorder')
     elif index == 19:
-      qtile.function(draw_widget)
+      qtile.cmd_function(draw_widget)
     elif index == 20:
-      qtile.function(fargewidget)
+      qtile.cmd_function(fargewidget)
     elif index == 21:
-      qtile.function(shortcuts)
+      qtile.cmd_function(shortcuts)
     elif index == 22:
-      qtile.function(emojis)
+      qtile.cmd_function(emojis)
     elif index == 23:
-      qtile.function(session_widget)
+      qtile.cmd_function(session_widget)
     elif index == 23:
       subprocess.run(home + '/.local/bin/updater')
     
@@ -676,6 +676,7 @@ keys = [
     Key(["control", "shift"], "space",  lazy.spawn("dunstctl close-all")), # Clear All Notifications
     Key(["control", "shift"], "n",  lazy.spawn("dunstctl  history-pop")), # Show Notificaction history
 ]
+
 
 ## Groups
 groups = []

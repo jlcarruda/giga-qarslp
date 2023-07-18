@@ -25,7 +25,7 @@ def init_widgets_list():
         foreground=color_in_use,
         text=" QARSlp",
         padding_x=5,
-        mouse_callbacks={'Button1':lambda: qtile.spawn('rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')},
+        mouse_callbacks={'Button1':lambda: qtile.cmd_spawn('rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')},
       ),
       widget.Spacer(
         length=5,
@@ -54,7 +54,7 @@ def init_widgets_list():
       ),
       widget.Mpris2(
         decorations=[RectDecoration(colour=color[0], radius=7, filled=True)],
-        mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal  + " -e cava")},
         objname=None,
         foreground=color_in_use,
         width=widget_width,
@@ -136,7 +136,7 @@ def init_widgets_list():
           decorations=[RectDecoration(colour=color[0], radius=[7,0,0,7],filled=True)],
           text=' ' + wifi_icon + ' ',
           foreground=color_in_use,
-          mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}
+          mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
         ),
       widget.Wlan(
         decorations=[RectDecoration(colour=color[0],radius=0, filled=True)],
@@ -144,7 +144,7 @@ def init_widgets_list():
         format='{percent:2.0%} ',
         disconnected_message='',
         foreground=color[3],
-        mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}
+        mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
       ),
       widget.KeyboardLayout(
         decorations=[RectDecoration(colour=color[0], radius=[0,7,7,0],filled=True)],
@@ -159,7 +159,7 @@ def init_widgets_list():
         decorations=[RectDecoration(colour=color[0], radius=[7,0,0,7], filled=True)],
         text="",
         foreground=color_in_use,
-        mouse_callbacks={'Button1': lambda: qtile.spawn('pavucontrol'),'Button4': lambda: qtile.spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol'),'Button4': lambda: qtile.cmd_spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.cmd_spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
       ),
       widget.ALSAWidget(
         decorations=[RectDecoration(colour=color_in_use, radius=0, filled=True)],
@@ -178,7 +178,7 @@ def init_widgets_list():
         decorations=[RectDecoration(colour=color[0], radius=[0,7,7,0], filled=True)],
         text=" ",
         foreground=color[5],
-        mouse_callbacks={'Button1': lambda: qtile.spawn('pavucontrol'),'Button4': lambda: qtile.spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol'),'Button4': lambda: qtile.cmd_spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.cmd_spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
       ),
       widget.Spacer(
         length=5,
@@ -207,7 +207,7 @@ def init_widgets_list():
         foreground=color_in_use,
         format="%A %H:%M",
         update_interval=1,
-        mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)},
+        mouse_callbacks={'Button1': lambda: qtile.cmd_function(calendar_notification),'Button4': lambda: qtile.cmd_function(calendar_notification_prev),'Button5': lambda: qtile.cmd_function(calendar_notification_next)},
       ),
       
       ]

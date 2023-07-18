@@ -110,7 +110,7 @@ def init_widgets_list():
         ),
         widget.Mpris2(
           background=color[0],
-          mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
+          mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal  + " -e cava")},
           objname=None,
           foreground=color[3],
           width=widget_width,
@@ -125,7 +125,7 @@ def init_widgets_list():
           background=color[3],
           text="",
           foreground=color[0],
-          mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
+          mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal  + " -e cava")},
           **powerline,            
         ),
         widget.OpenWeather(
@@ -181,35 +181,35 @@ def init_widgets_list():
               background=color[0],
               text='',
               foreground=color[3],
-              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
               **powerline,
             ),
             widget.TextBox(
               background=color[2],
               text=private_ip,
               foreground=color[0],
-              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
               **powerline,
             ),
             widget.TextBox(
               background=color[0],
               text='',
               foreground=color[3],
-              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
               **powerline,
             ),
             widget.TextBox(
               background=color[4],
               text=public_ip,
               foreground=color[0],
-              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
               **powerline,
             ),
             widget.TextBox(
               background=color[0],
               text=wifi_icon,
               foreground=color[3],
-              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
               **powerline,
             ),
           ]
@@ -225,7 +225,7 @@ def init_widgets_list():
               scroll_interval=0.1,
               scroll_step=1,
               update_interval=1,
-              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
               background=color[0],
             ),
         widget.Wlan(
@@ -234,7 +234,7 @@ def init_widgets_list():
                 format='{percent:2.0%}',
                 disconnected_message='',
                 foreground=color[3],
-                mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+                mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)},
                 **powerline,
         ),
         # widget.TextBox(
@@ -253,7 +253,7 @@ def init_widgets_list():
           background=color[5],
           text="",
           foreground=color[0],
-          mouse_callbacks={'Button1': lambda: qtile.spawn('pavucontrol'),'Button4': lambda: qtile.spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
+          mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol'),'Button4': lambda: qtile.cmd_spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.cmd_spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
           **powerline,
         ),
         widget.ALSAWidget(
@@ -276,7 +276,7 @@ def init_widgets_list():
           format="%a %d %H:%M",
           update_interval=1,
           background=color[3],
-          mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)}, 
+          mouse_callbacks={'Button1': lambda: qtile.cmd_function(calendar_notification),'Button4': lambda: qtile.cmd_function(calendar_notification_prev),'Button5': lambda: qtile.cmd_function(calendar_notification_next)}, 
           **powerline,
         ),
         widget.UPowerWidget(
@@ -299,7 +299,7 @@ def init_widgets_list():
           background=color[6],
           foreground=color[0],
           text="",
-          mouse_callbacks={'Button1': lambda: qtile.function(session_widget)},
+          mouse_callbacks={'Button1': lambda: qtile.cmd_function(session_widget)},
         )]
     return widgets_list
 

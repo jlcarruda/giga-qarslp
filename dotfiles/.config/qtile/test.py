@@ -11,7 +11,7 @@ def select_Wallpaper(qtile):
     variables[1]=backend[index] + "\n"
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
-    qtile.reload_config()
+    qtile.cmd_reload_config()
     subprocess.run(["notify-send","-a", " QARSlp", "Color Theme: ", " %s" %backend[index]])
 
 
