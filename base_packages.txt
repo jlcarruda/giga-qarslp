@@ -56,4 +56,5 @@ pamixer
 qtile
 kdeconnect
 zsh
-opera
+firefox
+code

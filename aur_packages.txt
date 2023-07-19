@@ -7,3 +7,4 @@ qtile-extras
 rofi-file-browser-extended-git
 lazydocker
 xinit-xsession
+lib32-libffmpeg
