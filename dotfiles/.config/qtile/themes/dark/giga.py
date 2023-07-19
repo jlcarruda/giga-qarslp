@@ -155,8 +155,10 @@ def groupbox_widgets():
 
 
 def init_widget_list():
+    groupbox_widgets_list = groupbox_widgets()
+    net_widgets_list = net_widgets()
     widgets = [
-        *groupbox_widgets(),
+        *groupbox_widgets_list,
         widget.Spacer(
             length=5,
             background=transparent,
@@ -288,7 +290,7 @@ def init_widget_list():
             length=5,
             background=transparent,
         ),
-        *net_widgets(),
+        *net_widgets_list,
         widget.Spacer(
             length=5,
             background=transparent,
