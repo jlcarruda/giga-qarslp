@@ -8,7 +8,7 @@ function copy_dotfiles(){
   cp $TMP_RICING/dotfiles/.shortcuts ~/
   mkdir -p ~/.config/wal/templates
   mkdir -p ~/.config/dunst
-  cp $TMP_RICING/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
+  cp $TMP_RICING/dotfiles/.config/dunst/dunstrc ~/.config/dunst
   cp $TMP_RICING/dotfiles/.config/rofi/QARSlp.rasi ~/.config/wal/templates
   mkdir -p ~/.config/cava
   cp $TMP_RICING/dotfiles/.config/cava/config ~/.config/wal/templates
@@ -50,8 +50,8 @@ function copy_dotfiles(){
   sudo ln -s /usr/local/themes/FlatColor /usr/share/themes/FlatColor
   sudo mkdir /usr/local/backgrounds
   sudo chown $USER:$USER /usr/local/backgrounds
-  sudo mkdir -p /usr/share/lightdm/lightdm.conf.d
-  sudo cp $TMP_RICING/dotfiles/lightdm/lightdm-gtk-greeter.conf /usr/share/lightdm/lightdm.conf.d/lightdm-gtk-greeter.conf
+  sudo mkdir -p /etc/lightdm
+  sudo cp $TMP_RICING/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
   cp $TMP_RICING/dotfiles/.gitconfig ~
 
   rm -rf $TMP_RICING
