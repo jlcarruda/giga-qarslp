@@ -52,6 +52,8 @@ function copy_dotfiles(){
   sudo chown $USER:$USER /usr/local/backgrounds
   sudo mkdir -p /etc/lightdm
   sudo cp $TMP_RICING/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+  sudo cp $TMP_RICING/dotfiles/lightdm/lightdmxrandr.sh /usr/share
+  sudo cp $TMP_RICING/dotfiles/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
   cp $TMP_RICING/dotfiles/.gitconfig ~
 
   rm -rf $TMP_RICING
