@@ -184,7 +184,7 @@ def init_widgets_list():
         length=5,
         background=transparent,
       ),
-      widget.UPowerWidget(
+      extra_widget.UPowerWidget(
           border_charge_colour=color[6],
           border_colour=secondary_color[0],
           border_critical_colour='#cc0000',

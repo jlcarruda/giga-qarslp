@@ -62,7 +62,7 @@ create_document() {
     fi
   fi
 
-  notify-send -a " QARSlp" "$message"
+#  notify-send -a " QARSlp" "$message"
   cp "$directory/Templates/$template" "$directory/$cn_name.$EXTENSION"
   "$TERMINAL" -e "$EDITOR" "$directory/$cn_name.$EXTENSION"
 }

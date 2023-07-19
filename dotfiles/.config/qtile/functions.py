@@ -136,8 +136,8 @@ rofi_left= Rofi(rofi_args=['-theme', '~/.config/rofi/left.rasi'])
 rofi_wallpaper=Rofi(rofi_args=(['rofi', '-show file-browser-extended', '-theme', '~/.config/rofi/sel_wal.rasi', '-file-browser-dir', '~/Pictures/Wallpapers', '-file-browser-stdout']))
 
 ### Weather
-w_appkey = str(variables[2].strip()) # Get a key here https://home.openweathermap.org/users/sign_up 
-w_cityid ="3995402" # "3995402" Morelia, "3521342" Playa del Carmen https://openweathermap.org/city/
+w_appkey = str(variables[2].strip()) # https://home.openweathermap.org/users/sign_up 
+w_cityid ="3390760" # https://openweathermap.org/city/
 
 ## Hooks
 @hook.subscribe.startup # This file gets executed everytime qtile restarts
@@ -329,7 +329,7 @@ def set_default_backend(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.cmd_reload_config()
-    subprocess.run(["notify-send","-a", " QARSlp", "Color Theme: ", " %s" %backend[index]])
+#   subprocess.run(["notify-send","-a", " QARSlp", "Color Theme: ", " %s" %backend[index]])
 
 # Display Shortcuts widget
 def shortcuts(qtile):
@@ -348,13 +348,13 @@ def nightLight_widget(qtile):
   else:
     if index == 0:
       os.system('redshift -O 3500k -r -P')
-      subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Night Time"])
+      #subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Night Time"])
     elif index == 1:
       os.system('redshift -x')
-      subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Neutral"])
+      #subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Neutral"])
     else:
       os.system('redshift -O 7500k -r -P')
-      subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Cool"])
+      #subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Cool"])
 
 # Farge Widget
 def fargewidget(qtile):
@@ -377,7 +377,7 @@ def draw_widget(qtile):
   else:
     if index ==0:
       subprocess.run("gromit-mpx -a &",shell=True)
-      subprocess.run(["notify-send", "-a", " QARSlp", "You can Draw Now"])
+      #subprocess.run(["notify-send", "-a", " QARSlp", "You can Draw Now"])
     else:
       subprocess.run("gromit-mpx -q",shell=True)
 
@@ -436,7 +436,7 @@ def dark_white(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.cmd_reload_config()
-    subprocess.run(["notify-send","-a", " QARSlp", "Theme changed to: ", "%s" %options[index]])
+    #subprocess.run(["notify-send","-a", " QARSlp", "Theme changed to: ", "%s" %options[index]])
 
 
 ## Select Bar Position Top or Bottom
@@ -477,7 +477,7 @@ def change_theme(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.cmd_reload_config()
-    subprocess.run(["notify-send","-a", " QARSlp", " Theme: ", "%s" %theme[index]])
+    # subprocess.run(["notify-send","-a", " QARSlp", " Theme: ", "%s" %theme[index]])
     
 # Set random colors to theme
 def random_colors(qtile):
@@ -498,7 +498,8 @@ def screenshot(qtile):
     elif index==1:
       subprocess.run("flameshot full --path ~/Pictures/Screenshot.png --delay 500",shell=True)
     elif index==2:
-      subprocess.run("scrot -u 'window_screenshot.png' -e 'mv $f ~/Pictures/ #; feh -F ~/Pictures/$f' && notify-send -a 'flameshot' 'Window Picture Taken!'",shell=True)
+      #subprocess.run("scrot -u 'window_screenshot.png' -e 'mv $f ~/Pictures/ #; feh -F ~/Pictures/$f' && notify-send -a 'flameshot' 'Window Picture Taken!'",shell=True)
+      subprocess.run("scrot -u 'window_screenshot.png' -e 'mv $f ~/Pictures/ #; feh -F ~/Pictures/$f'",shell=True)
     else:
       subprocess.run("flameshot full --path ~/Pictures/Screenshot.png --delay 5000",shell=True)
 
