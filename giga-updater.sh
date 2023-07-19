@@ -21,11 +21,11 @@ function reset_dotfiles(){
 
     cp $TMP_RICING/dotfiles/.gitconfig ~
     cp $TMP_RICING/dotfiles/.zshrc ~
-    cp $TMP_RICING/dotfiles/.local/bin/calculator
-    cp $TMP_RICING/dotfiles/.local/bin/calendar
-    cp $TMP_RICING/dotfiles/.local/bin/notesfi
-    cp $TMP_RICING/dotfiles/.local/bin/recorder
-    cp $TMP_RICING/dotfiles/.local/bin/selectwal
+    cp $TMP_RICING/dotfiles/.local/bin/calculator ~/.local/bin
+    cp $TMP_RICING/dotfiles/.local/bin/calendar ~/.local/bin
+    cp $TMP_RICING/dotfiles/.local/bin/notesfi ~/.local/bin
+    cp $TMP_RICING/dotfiles/.local/bin/recorder ~/.local/bin
+    cp $TMP_RICING/dotfiles/.local/bin/selectwal ~/.local/bin
 
     cp -r $TMP_RICING/dotfiles/.config/qtile/* ~/.config/qtile
 
