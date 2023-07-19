@@ -15,8 +15,7 @@
 #                                                      Inspired by @gibranlp ricing: QARSlp
 
 function install_new_packages() {
-  packets=(
-)
+  packets=()
 
 for packet in "${packets[@]}"; do
     echo "Instalando --> ${packet}"
