@@ -73,8 +73,8 @@ HIST_STAMPS="dd/mm/yyyy"
 
 plugins=(archlinux
 	colored-man-pages
-	# zsh-autosuggestions
-	# zsh-syntax-highlighting
+	zsh-autosuggestions
+	zsh-syntax-highlighting
   	node
   	docker
 	git)

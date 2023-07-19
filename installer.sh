@@ -89,5 +89,5 @@ paru_install
 install_base_packages
 install_aur_packages
 install_pip_packages
-./copy_files.sh
 ./configure.sh
+./copy_files.sh
