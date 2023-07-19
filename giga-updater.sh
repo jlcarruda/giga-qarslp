@@ -21,6 +21,7 @@ function reset_dotfiles(){
 
     cp $TMP_RICING/dotfiles/.gitconfig ~
     cp $TMP_RICING/dotfiles/.zshrc ~
+    cp $TMP_RICING/dotfiles/.xprofile ~
     cp $TMP_RICING/dotfiles/.local/bin/calculator ~/.local/bin
     cp $TMP_RICING/dotfiles/.local/bin/calendar ~/.local/bin
     cp $TMP_RICING/dotfiles/.local/bin/notesfi ~/.local/bin
