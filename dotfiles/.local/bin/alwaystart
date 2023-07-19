@@ -11,7 +11,7 @@
 unclutter -idle 1 &
 #rm -rf ~/.config/wpg/schemes/* &
 pkill dunst &  
-picom --no-vsync --no-use-damage & 
+# picom --no-vsync --no-use-damage & 
 #cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc &
 #cp ~/.cache/wal/config ~/.config/cava/config &
 #cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/flameshot.ini &
@@ -19,4 +19,4 @@ picom --no-vsync --no-use-damage &
 pkill -USR1 cava &
 dunst &
 # wal-telegram &
-# wal -R
+wal -R

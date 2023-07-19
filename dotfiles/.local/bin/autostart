@@ -14,4 +14,4 @@ transmission-daemon &
 kdeconnect-indicator &
 blueman-applet &
 barrier &
-xrandr --output $(xrandr | grep "connected primary" | awk '{print $1}') --mode $DISPLAY_SIZE -r 60
+xrandr --output $(xrandr | grep "connected primary" | awk '{print $1}') --mode 1920x1080 -r 60

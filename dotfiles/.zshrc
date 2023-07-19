@@ -119,8 +119,8 @@ alias tsm="transmission-remote"
 alias sshelgen="ssh -i ~/.ssh/rsa_deploy itadmin@199.85.208.94"
 export PATH=~/.local/bin:$PATH
 
-wal -R -q && clear 
-setxkbmap -layout us -variant intl
+# wal -R -q && clear 
+# setxkbmap -layout us -variant intl
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
