@@ -5,3 +5,4 @@ picom-pijulius-git
 rofi-emoji
 qtile-extras
 rofi-file-browser-extended-git
+lazydocker
