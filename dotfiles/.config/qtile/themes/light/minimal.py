@@ -9,6 +9,7 @@
 # MIT licence 
 #
 from functions import *
+from qtile_extras import widget as extra_widget
 
 # Theme 
 ## Screens
@@ -103,7 +104,7 @@ def init_widgets_list():
           foreground=color[3],
           mouse_callbacks={'Button1': lambda: qtile.cmd_function(network_widget)},
           ),
-        widget.ALSAWidget(
+        extra_widget.ALSAWidget(
           background=color[0],
           device='Master',
           bar_colour_high=color[5],

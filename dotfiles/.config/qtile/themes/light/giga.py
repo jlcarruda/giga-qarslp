@@ -260,7 +260,7 @@ def init_widget_list():
                                                                                                                    shell=True), 'Button5': lambda: qtile.cmd_spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
             fontsize=font_size-2
         ),
-        widget.ALSAWidget(
+        extra_widget.ALSAWidget(
             decorations=[RectDecoration(
                 use_widget_background=True, radius=0, padding_y=1, filled=True)],
             background=secondary_color[0],

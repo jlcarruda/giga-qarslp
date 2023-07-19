@@ -644,23 +644,23 @@ keys = [
     # Window hotkeys
     Key([alt], "g", lazy.window.toggle_fullscreen()), # Toggle Current window ;n
     Key([alt, "shift"], "f", lazy.window.toggle_floating()), # Toggle current window floating
-    Key([mod], "space", lazy.next_layout()), # Cycle layouts
+    Key([alt], "space", lazy.next_layout()), # Cycle layouts
 
     # Resize windows
-    Key([mod], "h", lazy.layout.left()),
-    Key([mod], "l", lazy.layout.right()),
-    Key([mod], "j", lazy.layout.down()),
-    Key([mod], "k", lazy.layout.up()),
-    Key([mod, "shift"], "h", lazy.layout.swap_left()),
-    Key([mod, "shift"], "l", lazy.layout.swap_right()),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
-    Key([mod], "i", lazy.layout.grow()),
-    Key([mod, "shift"], "i", lazy.layout.grow_main()),
-    Key([mod], "m", lazy.layout.shrink()),
-    Key([mod, "shift"], "m", lazy.layout.shrink_main()),
-    Key([mod], "o", lazy.layout.maximize()),
-    Key([mod, "shift"], "space", lazy.layout.flip()),
+    Key([alt], "h", lazy.layout.left()),
+    Key([alt], "l", lazy.layout.right()),
+    Key([alt], "j", lazy.layout.down()),
+    Key([alt], "k", lazy.layout.up()),
+    Key([alt, "shift"], "h", lazy.layout.swap_left()),
+    Key([alt, "shift"], "l", lazy.layout.swap_right()),
+    Key([alt, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([alt, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([alt], "i", lazy.layout.grow()),
+    Key([alt, "shift"], "i", lazy.layout.grow_main()),
+    Key([alt], "m", lazy.layout.shrink()),
+    Key([alt, "shift"], "m", lazy.layout.shrink_main()),
+    Key([alt], "o", lazy.layout.maximize()),
+    Key([alt, "shift"], "space", lazy.layout.flip()),
 
     # Keyboard
     Key([alt], "space", lazy.widget["keyboardlayout"].next_keyboard()), # Change Keyboard Layout
@@ -683,11 +683,11 @@ groups = []
 group_names = ["Escape","1","2","3","4","5","6","7","8","9"]
 
 #### Groups Labels
-#group_labels=["零","一","二","三","四","五","六","七","八","九"] # Kanji Numbers
+group_labels=["零","一","二","三","四","五","六","七","八","九"] # Kanji Numbers
 #group_labels=["0","1","2","3","4","5","6","7","8","9"] # Numbers
 #group_labels=["","","","","","","","","",""] # Circles
 #group_labels=["","","","","","","","","",""] # Dot Circles
-group_labels=["","","","","","","","","",""] # Custom
+#group_labels=["","","","","","","","","",""] # Custom
 #group_labels=["","","","","","","","","",""] # Star Wars
 
 

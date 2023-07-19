@@ -11,7 +11,7 @@
 from functions import *
 
 from libqtile import qtile
-from qtile_extras import widget as extra_widget
+# from qtile_extras import widget as extra_widget
 
 # Theme
 
@@ -144,7 +144,7 @@ def init_widgets_list():
           mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol'),'Button4': lambda: qtile.cmd_spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.cmd_spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)}, 
           fontsize=font_size-2
         ),
-        widget.ALSAWidget(
+        extra_widget.ALSAWidget(
           decorations=[RectDecoration(use_widget_background=True,radius=0, padding_y=1, filled=True)],
           background=secondary_color[0],
           device='Master',
@@ -255,7 +255,7 @@ def init_widgets_list():
           length=5,
           background=transparent,
         ),
-        widget.UPowerWidget(
+        extra_widget.UPowerWidget(
           padding_y=1,
           background=color[0],
           fontsize=font_size,

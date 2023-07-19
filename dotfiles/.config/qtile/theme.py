@@ -122,7 +122,7 @@ def init_widgets_list():
               length=5,
               background=transparent,
             ),
-            widget.UPowerWidget(
+            extra_widget.UPowerWidget(
                border_charge_colour=color[3],
                border_colour=secondary_color[0],
                border_critical_colour='#cc0000',
@@ -295,7 +295,7 @@ def init_widgets_list():
               foreground=color[2],
               mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol'),'Button4': lambda: qtile.cmd_spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.cmd_spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
             ),
-            widget.ALSAWidget(
+            extra_widget.ALSAWidget(
               decorations=[RectDecoration(colour=color[0], radius=0, filled=True)],
               device='Master',
               bar_colour_high=color[2],

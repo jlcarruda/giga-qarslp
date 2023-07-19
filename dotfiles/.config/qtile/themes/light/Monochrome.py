@@ -9,6 +9,7 @@
 # MIT licence 
 #
 from functions import *
+from qtile_extras import widget as extra_widget
 
 # Theme
 ## Screens
@@ -158,7 +159,7 @@ def init_widgets_list():
         foreground=color_in_use,
         mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')}
       ),
-      widget.ALSAWidget(
+      extra_widget.ALSAWidget(
         decorations=[RectDecoration(colour=color_in_use, radius=0, filled=True)],
         device='Master',
         bar_colour_high=color[0],
@@ -181,7 +182,7 @@ def init_widgets_list():
         length=5,
         background=transparent,
       ),
-      widget.UPowerWidget(
+      extra_widget.UPowerWidget(
           border_charge_colour=color[6],
           border_colour=secondary_color[0],
           border_critical_colour='#cc0000',

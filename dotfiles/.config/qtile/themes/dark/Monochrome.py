@@ -161,7 +161,7 @@ def init_widgets_list():
         foreground=color_in_use,
         mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol'),'Button4': lambda: qtile.cmd_spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.cmd_spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
       ),
-      widget.ALSAWidget(
+      extra_widget.ALSAWidget(
         decorations=[RectDecoration(colour=color_in_use, radius=0, filled=True)],
         device='Master',
         bar_colour_high=color[0],
