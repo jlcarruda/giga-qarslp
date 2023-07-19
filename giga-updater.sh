@@ -28,6 +28,7 @@ function reset_dotfiles(){
     cp $TMP_RICING/dotfiles/.local/bin/notesfi ~/.local/bin
     cp $TMP_RICING/dotfiles/.local/bin/recorder ~/.local/bin
     cp $TMP_RICING/dotfiles/.local/bin/selectwal ~/.local/bin
+    sudo mkdir -p /usr/share/lightdm/lightdm.conf.d
     sudo cp $TMP_RICING/dotfiles/lightdm/lightdm-gtk-greeter.conf /usr/share/lightdm/lightdm.conf.d/lightdm-gtk-greeter.conf
     cp $TMP_RICING/dotfiles/.gitconfig ~
 
