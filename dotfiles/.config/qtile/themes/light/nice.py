@@ -298,35 +298,6 @@ def init_screens_bottom():
 def init_screens_top():
     return[Screen(top=bar.Bar(widgets=screen1_widgets(),size=bar_size,background=color[0],margin=bar_margin))]
 
-def wlan_widgets():
-   return [
-      widget.Wlan(
-          decorations=[RectDecoration(use_widget_background=True, radius=0, padding_y=1, filled=True)],
-          background=secondary_color[0],
-          fontsize=font_size ,
-          interface=wifi,
-          format='{essid}',
-          disconnected_message='',
-          foreground=color[3],
-          width=widget_width,
-          scroll=True,
-          scroll_repeat=True,
-          scroll_interval=0.1,
-          scroll_step=1,
-          update_interval=1,
-          mouse_callbacks={'Button1':lambda: qtile.cmd_spawn(home + "/.local/bin/wifi2")}),
-      widget.Wlan(
-          decorations=[RectDecoration(use_widget_background=True, radius=0, padding_y=1, filled=True)],
-          background=secondary_color[0],
-          fontsize=font_size,
-          interface=wifi,
-          format='{percent:2.0%}',
-          disconnected_message='',
-          foreground=color[3],
-          mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
-        )
-      ]
-
 if bar_position == "top":
   screens=init_screens_top()
 else:

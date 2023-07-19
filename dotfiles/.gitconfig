@@ -1,2 +1,28 @@
 [core]
 	editor = vim
+[alias]
+        aa = add .
+        bm = branch -M
+        st = status
+        co = checkout
+        cob = checkout -b
+        cm = commit -m
+        com = commit
+        c = commit
+        pl = pull
+        pr = pull --rebase
+        pu = push -u
+        ps = push
+        pf = push --force
+        ca = commit --amend
+        cp = cherry-pick
+        cpa = cherry-pick --abort
+        cpc = cherry-pick --continue
+        cps = cherry-pick --skip
+        rbc = rebase --continue
+        rba = rebase --abort
+        rbs = rebase --skip
+        d = diff
+        dc = diff --cached
+        cpn = cherry-pick -n
+        set-remote-url = remote set-url
