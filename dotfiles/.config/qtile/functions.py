@@ -263,7 +263,7 @@ def change_wallpaper(qtile):
     selected_wallpaper = os.path.join(wallpaper_dir, selection)
   
   qtile.cmd_reload_config()
-  #subprocess.run(["notify-send","-a", " QARSlp", "Random Wallpaper Set to: ", "%s" %selection])
+  subprocess.run(["notify-send","-a", " QARSlp", "Random Wallpaper Set to: ", "%s" %selection])
 
 ## Get network device in use
 def get_net_dev():
@@ -348,13 +348,13 @@ def nightLight_widget(qtile):
   else:
     if index == 0:
       os.system('redshift -O 3500k -r -P')
-      #subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Night Time"])
+      subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Night Time"])
     elif index == 1:
       os.system('redshift -x')
-      #subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Neutral"])
+      subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Neutral"])
     else:
       os.system('redshift -O 7500k -r -P')
-      #subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Cool"])
+      subprocess.run(["notify-send","-a", " QARSlp", "Temperature Set to Cool"])
 
 # Farge Widget
 def fargewidget(qtile):
@@ -377,7 +377,7 @@ def draw_widget(qtile):
   else:
     if index ==0:
       subprocess.run("gromit-mpx -a &",shell=True)
-      #subprocess.run(["notify-send", "-a", " QARSlp", "You can Draw Now"])
+      subprocess.run(["notify-send", "-a", " QARSlp", "You can Draw Now"])
     else:
       subprocess.run("gromit-mpx -q",shell=True)
 
@@ -436,7 +436,7 @@ def dark_white(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.cmd_reload_config()
-    #subprocess.run(["notify-send","-a", " QARSlp", "Theme changed to: ", "%s" %options[index]])
+    subprocess.run(["notify-send","-a", " QARSlp", "Theme changed to: ", "%s" %options[index]])
 
 
 ## Select Bar Position Top or Bottom
