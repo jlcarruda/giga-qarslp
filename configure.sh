@@ -23,15 +23,10 @@ rm $HOME/xorg.conf.new
 cp ./dotfiles/.xinitrc ~/.xinitrc
 
 ## add local bin to PATH
-export PATH=$PATH:$HOME/.local/bin
+sudo export PATH=$PATH:$HOME/.local/bin
 
 ## Execute wpg-install
 wpg-install.sh -gio
 
-#############################
-#  MANUAL DISPLAY SIZE SET  #
-#############################
-
-# Change manually to the size you want your display
-# you can check which size is available by running `xrandr` on your terminal
-export DISPLAY_SIZE="1920x1080" 
+## enable lightdm
+# systemd 
