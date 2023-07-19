@@ -9,7 +9,6 @@
 # MIT licence 
 #
 from functions import *
-from qtile_extras import widget as extra_widget
 
 # Theme
 ## Screens

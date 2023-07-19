@@ -11,7 +11,6 @@
 from functions import *
 
 from libqtile import qtile
-# from qtile_extras import widget as extra_widget
 
 # Theme
 
