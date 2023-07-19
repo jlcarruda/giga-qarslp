@@ -1,4 +1,5 @@
 alsa-utils
+arandr
 base-devel
 feh
 pulseaudio-alsa

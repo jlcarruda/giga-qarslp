@@ -50,7 +50,8 @@ function copy_dotfiles(){
   sudo ln -s /usr/local/themes/FlatColor /usr/share/themes/FlatColor
   sudo mkdir /usr/local/backgrounds
   sudo chown $USER:$USER /usr/local/backgrounds
-  sudo cp $TMP_RICING/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+  sudo mkdir -p /usr/share/lightdm/lightdm.conf.d
+  sudo cp $TMP_RICING/dotfiles/lightdm/lightdm-gtk-greeter.conf /usr/share/lightdm/lightdm.conf.d/lightdm-gtk-greeter.conf
   cp $TMP_RICING/dotfiles/.gitconfig ~
 
   rm -rf $TMP_RICING
