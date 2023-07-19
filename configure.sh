@@ -25,6 +25,8 @@ cp ./dotfiles/.xinitrc ~/.xinitrc
 ## add local bin to PATH
 sudo export PATH=$PATH:$HOME/.local/bin
 
+su systemctl enable ligthdm.service --now
+
 ## Execute wpg-install
 wpg-install.sh -gio
 
