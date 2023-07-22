@@ -14,6 +14,7 @@ while IFS= read -r line; do
    variables+=("$line")
 done < ~/.config/qtile/variables
 
+
 set_wall(){
   wpg ${variables[3]} -s $WALLPAPER --backend ${variables[1]} # Wal sets wallpaper and genates new color scheme
   cp $WALLPAPER "/usr/local/backgrounds/background.png"
@@ -22,7 +23,8 @@ set_wall(){
 }
 
 get_wall(){
-  rofi -show file-browser-extended -theme ~/.config/rofi/sel_wal.rasi -file-browser-dir ~/Pictures/Wallpapers -file-browser-stdout
+  wallpapers_theme="~/Pictures/Wallpapers${variables[6]}"
+  rofi -show file-browser-extended -theme ~/.config/rofi/sel_wal.rasi -file-browser-dir "$wallpapers_theme" -file-browser-stdout
 }
 
 WALLPAPER=$(get_wall)
