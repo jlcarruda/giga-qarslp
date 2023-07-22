@@ -329,7 +329,7 @@ def set_default_backend(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.cmd_reload_config()
-#   subprocess.run(["notify-send","-a", " QARSlp", "Color Theme: ", " %s" %backend[index]])
+    subprocess.run(["notify-send","-a", " QARSlp", "Color Theme: ", " %s" %backend[index]])
 
 # Display Shortcuts widget
 def shortcuts(qtile):
@@ -498,7 +498,7 @@ def screenshot(qtile):
     elif index==1:
       subprocess.run("flameshot full --path ~/Pictures/Screenshot.png --delay 500",shell=True)
     elif index==2:
-      #subprocess.run("scrot -u 'window_screenshot.png' -e 'mv $f ~/Pictures/ #; feh -F ~/Pictures/$f' && notify-send -a 'flameshot' 'Window Picture Taken!'",shell=True)
+      subprocess.run("scrot -u 'window_screenshot.png' -e 'mv $f ~/Pictures/ #; feh -F ~/Pictures/$f' && notify-send -a 'flameshot' 'Window Picture Taken!'",shell=True)
       subprocess.run("scrot -u 'window_screenshot.png' -e 'mv $f ~/Pictures/ #; feh -F ~/Pictures/$f'",shell=True)
     else:
       subprocess.run("flameshot full --path ~/Pictures/Screenshot.png --delay 5000",shell=True)

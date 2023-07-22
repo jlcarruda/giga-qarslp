@@ -37,7 +37,7 @@ fi
 
 input="$*"
 answer=$(echo "$input" | insect)
-#notify-send -a "Calculator" "$input  $answer"
+notify-send -a "Calculator" "$input  $answer"
 action=$(echo -e "Copy\nClear" | $menu -i -p "  $answer")
 
 case $action in

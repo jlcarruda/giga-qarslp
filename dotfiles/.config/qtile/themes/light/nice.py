@@ -10,8 +10,6 @@
 #
 from functions import *
 
-from libqtile import qtile
-
 # Theme
 
 ## Screens
