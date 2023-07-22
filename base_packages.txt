@@ -58,3 +58,4 @@ kdeconnect
 zsh
 firefox
 code
+accountsservice
