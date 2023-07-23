@@ -661,7 +661,7 @@ keys = [
     Key([alt, "shift"], "space", lazy.layout.flip()),
 
     # Keyboard
-    Key([alt], "space", lazy.widget["keyboardlayout"].next_keyboard()), # Change Keyboard Layout
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard()), # Change Keyboard Layout
 
     # Screenshots
     Key([], "Print", lazy.function(screenshot)),

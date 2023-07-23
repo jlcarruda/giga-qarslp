@@ -30,4 +30,4 @@ wpg-install.sh -gio
 genwal
 
 ## enable lightdm
-sudo systemctl enable lightdm.service --now:
+sudo systemctl enable lightdm.service --now
