@@ -55,6 +55,7 @@ function copy_dotfiles(){
   sudo cp $TMP_RICING/dotfiles/lightdm/lightdmxrandr.sh /usr/share
   sudo cp $TMP_RICING/dotfiles/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
   cp $TMP_RICING/dotfiles/.gitconfig ~
+  cp $TMP_RICING/.local/bin/* /usr/bin/
 
   rm -rf $TMP_RICING
 }

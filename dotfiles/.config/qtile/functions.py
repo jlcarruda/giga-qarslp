@@ -151,8 +151,23 @@ group_names = ["Escape","1","2","3","4","5","6","7","8","9"]
 group_labels=["","","","","","","","","",""] # Custom
 #group_labels=["","","","","","","","","",""] # Star Wars
 
-
 ####
+## Layouts
+def init_layout_theme():
+  return {"font":main_font,
+    "fontsize":font_size,
+    "margin":layout_margin,
+    "border_on_single":False,
+    "border_width":layout_border_width,
+    "border_normal":color[0],
+    "border_focus":color[2],
+    "single_margin":single_layout_margin,
+    "single_border_width":single_border_width,
+    "change_ratio":0.01,
+    "new_client_position":'bottom',
+    }
+
+layout_theme = init_layout_theme()
 
 group_layouts=["monadtall", "monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall","monadwide", "monadtall", "monadtall"]
 for i in range(len(group_names)):
@@ -678,23 +693,6 @@ keys = [
 for i in groups:
     keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))
     keys.append(Key([mod, 'shift'], i.name, lazy.window.togroup(i.name)))
-
-## Layouts
-def init_layout_theme():
-  return {"font":main_font,
-    "fontsize":font_size,
-    "margin":layout_margin,
-    "border_on_single":False,
-    "border_width":layout_border_width,
-    "border_normal":color[0],
-    "border_focus":color[2],
-    "single_margin":single_layout_margin,
-    "single_border_width":single_border_width,
-    "change_ratio":0.01,
-    "new_client_position":'bottom',
-    }
-
-layout_theme = init_layout_theme()
 
 def init_layouts():
   return [
