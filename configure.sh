@@ -27,6 +27,7 @@ su systemctl enable ligthdm.service --now
 
 ## Execute wpg-install
 wpg-install.sh -gio
+genwal
 
 ## enable lightdm
-# systemd 
+sudo systemctl enable lightdm.service --now:

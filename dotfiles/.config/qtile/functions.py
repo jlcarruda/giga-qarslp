@@ -139,32 +139,29 @@ rofi_wallpaper=Rofi(rofi_args=(['rofi', '-show file-browser-extended', '-theme',
 w_appkey = str(variables[2].strip()) # https://home.openweathermap.org/users/sign_up 
 w_cityid ="3390760" # https://openweathermap.org/city/
 
-## Hooks
-@hook.subscribe.startup # This file gets executed everytime qtile restarts
-def start():
-  subprocess.call(home + '/.local/bin/alwaystart')
-      
-@hook.subscribe.startup_once # Ths file gets executed at first start only
-def start_once():
-  subprocess.call(home + '/.local/bin/autostart')
+## Groups
+groups = []
+group_names = ["Escape","1","2","3","4","5","6","7","8","9"]
 
-@hook.subscribe.client_new
-def follow_window(client):
-  for group in groups:
-    match = next((m for m in group.matches if m.compare(client)), None)
-    if match:
-      targetgroup = qtile.groups_map[group.name]
-      targetgroup.toscreen(toggle=False)
-      break
+#### Groups Labels
+#group_labels=["零","一","二","三","四","五","六","七","八","九"] # Kanji Numbers
+#group_labels=["0","1","2","3","4","5","6","7","8","9"] # Numbers
+#group_labels=["","","","","","","","","",""] # Circles
+#group_labels=["","","","","","","","","",""] # Dot Circles
+group_labels=["","","","","","","","","",""] # Custom
+#group_labels=["","","","","","","","","",""] # Star Wars
 
-@hook.subscribe.client_name_updated
-def follow_window_name(client):
-  for group in groups:
-    match = next((m for m in group.matches if m.compare(client)), None)
-    if match:
-      targetgroup = qtile.groups_map[group.name]
-      targetgroup.toscreen(toggle=False)
-      break
+
+####
+
+group_layouts=["monadtall", "monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall","monadwide", "monadtall", "monadtall"]
+for i in range(len(group_names)):
+  groups.append(
+    Group(
+      name=group_names[i],
+      layout=group_layouts[i].lower(),
+      label=group_labels[i],
+  ))
 
 ##Specific Apps/Groups
 def app_or_group(group, app):
@@ -678,30 +675,6 @@ keys = [
     Key(["control", "shift"], "n",  lazy.spawn("dunstctl  history-pop")), # Show Notificaction history
 ]
 
-
-## Groups
-groups = []
-group_names = ["Escape","1","2","3","4","5","6","7","8","9"]
-
-#### Groups Labels
-#group_labels=["零","一","二","三","四","五","六","七","八","九"] # Kanji Numbers
-#group_labels=["0","1","2","3","4","5","6","7","8","9"] # Numbers
-#group_labels=["","","","","","","","","",""] # Circles
-#group_labels=["","","","","","","","","",""] # Dot Circles
-group_labels=["","","","","","","","","",""] # Custom
-#group_labels=["","","","","","","","","",""] # Star Wars
-
-
-####
-
-group_layouts=["monadtall", "monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall","monadwide", "monadtall", "monadtall"]
-for i in range(len(group_names)):
-  groups.append(
-    Group(
-      name=group_names[i],
-      layout=group_layouts[i].lower(),
-      label=group_labels[i],
-  ))
 for i in groups:
     keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))
     keys.append(Key([mod, 'shift'], i.name, lazy.window.togroup(i.name)))
@@ -738,4 +711,29 @@ widget_defaults = dict(
     padding=3,
 )
 
+## Hooks
+@hook.subscribe.startup # This file gets executed everytime qtile restarts
+def start():
+  subprocess.call(home + '/.local/bin/alwaystart')
+      
+@hook.subscribe.startup_once # Ths file gets executed at first start only
+def start_once():
+  subprocess.call(home + '/.local/bin/autostart')
 
+@hook.subscribe.client_new
+def follow_window(client):
+  for group in groups:
+    match = next((m for m in group.matches if m.compare(client)), None)
+    if match:
+      targetgroup = qtile.groups_map[group.name]
+      targetgroup.toscreen(toggle=False)
+      break
+
+@hook.subscribe.client_name_updated
+def follow_window_name(client):
+  for group in groups:
+    match = next((m for m in group.matches if m.compare(client)), None)
+    if match:
+      targetgroup = qtile.groups_map[group.name]
+      targetgroup.toscreen(toggle=False)
+      break

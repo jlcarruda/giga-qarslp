@@ -49,8 +49,9 @@ This ricing setup is being tested with the following configurations:
 - audio with `pipewire`
 
 ## ROADMAP
-- [ ] `lightdm` not using the greeter theme
+- [X] `lightdm` not using the greeter theme setted by ricing setup
 - [ ] Fix audio source on YT videos (they are laggy and with audio messed up)
 - [ ] Shortcut to change WP is not working
 - [ ] change notify-send to dunstify calls
 - [ ] optional installation of pentesting_packages
+- [ ] log off and lock buttons on rofi not working with lightdm

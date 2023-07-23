@@ -59,3 +59,4 @@ zsh
 firefox
 code
 accountsservice
+vim
